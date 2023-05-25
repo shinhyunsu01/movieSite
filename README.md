@@ -1,7 +1,11 @@
 # 배포 사이트
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://magical-kangaroo-69ed38.netlify.app/
 
 ## 코드 다운로드
 
 npm install
+
+## 코드 실행
+
+npm run start
