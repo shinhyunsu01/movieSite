@@ -1,12 +1,12 @@
 import { useRecoilState } from "recoil";
 import { fetcher } from "../Apis/api";
-import { moviesInfo, LastPageNum, Imovies } from "../Atoms/atom";
+import { moviesInfo, lastPageNum, Imovies } from "../Atoms/atom";
 
 type UseGetMovies = [(data: number) => Promise<boolean>, Imovies[]];
 
 export default function useGetMovies(): UseGetMovies {
   const [movies, setMovies] = useRecoilState(moviesInfo);
-  const [lastPageNum, setLastPageNum] = useRecoilState(LastPageNum);
+  const [lastPageNumber, setLastPageNumber] = useRecoilState(lastPageNum);
 
   async function onPaginationFn(pageNum: number) {
     try {
@@ -22,9 +22,9 @@ export default function useGetMovies(): UseGetMovies {
           };
         });
         if (pageNum === 1) setMovies(resMovies);
-        else if (pageNum > lastPageNum && pageNum < res.total_pages) setMovies(movies.concat(resMovies));
+        else if (pageNum > lastPageNumber && pageNum < res.total_pages) setMovies(movies.concat(resMovies));
 
-        setLastPageNum(pageNum);
+        setLastPageNumber(pageNum);
       }
       return true;
     } catch (error) {

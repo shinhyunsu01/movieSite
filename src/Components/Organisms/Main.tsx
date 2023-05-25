@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { Imovies } from "../../Atoms/atom";
+import { useRecoilValue } from "recoil";
+import { Imovies, searchWord } from "../../Atoms/atom";
 
 import MainContentLayout from "../Molecules/MainContentLayout";
 import StarContent from "../Molecules/StarContent";
@@ -12,6 +13,7 @@ interface Iprops {
 
 const Main: React.FC<Iprops> = ({ movies, onInfinitePageNation }) => {
   const { ref, inView } = useInView();
+  const search = useRecoilValue(searchWord);
 
   useEffect(() => {
     onInfinitePageNation();
@@ -34,7 +36,7 @@ const Main: React.FC<Iprops> = ({ movies, onInfinitePageNation }) => {
           <StarContent popular={data.vote_average} />
         </div>
       ))}
-      <div ref={ref}></div>
+      {search === "" && <div ref={ref}></div>}
     </MainContentLayout>
   );
 };

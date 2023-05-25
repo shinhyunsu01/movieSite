@@ -1,10 +1,16 @@
 import React from "react";
-import { SWRConfig } from "swr";
+
 import Movies from "./Pages/Movies";
 
-import { RecoilRoot } from "recoil";
+import { Route, Routes } from "react-router-dom";
+import NonePage from "./Pages/NonePage";
 function App() {
-  return <Movies />;
+  return (
+    <Routes>
+      <Route path="/movies" element={<Movies />} />
+      <Route path="/*" element={<NonePage />} />
+    </Routes>
+  );
 }
 
 export default App;
