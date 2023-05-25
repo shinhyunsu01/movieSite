@@ -7,7 +7,7 @@ import NonePage from "./Pages/NonePage";
 function App() {
   return (
     <Routes>
-      <Route path="/movies" element={<Movies />} />
+      <Route path="/" element={<Movies />} />
       <Route path="/*" element={<NonePage />} />
     </Routes>
   );
