@@ -5,7 +5,7 @@ interface Iprops {
 }
 
 const HeaderLayout: React.FC<Iprops> = ({ children }) => {
-  return <div className="fixed z-10 top-0 w-full flex justify-center h-14 items-center bg-white">{children}</div>;
+  return <div className="fixed -z-1 top-0 w-full flex justify-center h-14 items-center bg-white">{children}</div>;
 };
 
 export default HeaderLayout;

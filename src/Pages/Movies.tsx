@@ -23,10 +23,13 @@ const Movies = () => {
   };
 
   return (
-    <div className=" w-full h-full flex flex-col items-center justify-center m-auto ">
-      <Header onChange={onChange} />
-      <Main onInfinitePageNation={onInfinitePageNation} movies={search !== "" ? filterMoviesInfo : moviesInfo} />
-    </div>
+    <>
+      <div className=" w-full h-full flex flex-col items-center justify-center m-auto  overflow-hidden fixed ">
+        <Header onChange={onChange} />
+
+        <Main onInfinitePageNation={onInfinitePageNation} movies={search !== "" ? filterMoviesInfo : moviesInfo} />
+      </div>
+    </>
   );
 };
 

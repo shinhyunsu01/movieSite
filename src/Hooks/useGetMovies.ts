@@ -28,7 +28,6 @@ export default function useGetMovies(): UseGetMovies {
       }
       return true;
     } catch (error) {
-      console.log(error);
       return false;
     }
   }
